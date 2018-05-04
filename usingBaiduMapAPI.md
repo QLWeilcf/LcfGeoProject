@@ -6,7 +6,7 @@
 ## Web API
 参考：[webapi](http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-placeapi)
 
-```
+```python
 import json
 import time
 def parseBaiduJson4():
@@ -28,7 +28,29 @@ def parseBaiduJson4():
 		time.sleep(2) #百度API对个人用户访问有一定并行限制，所以需要sleep
 	print('done')
 
-
+def parseBaiduJson5(iquery,ibuds,savep):
+    #param : 查询内容，如超市；边界 保存路径
+    i=1
+    ikey="yourkey"
+    while (i<100): #100为可变阈值，一般不会超过100
+        u3="http://api.map.baidu.com/place/v2/search?query={query}" \
+        "&bounds={buds}" \
+        "&output=json&page_size={psize}" \
+        "&page_num={pnum}&ak={key}".format(query=iquery,buds=ibuds,psize="10",pnum=str(i),key=ikey)
+        text=getOneUrl(u3)
+        jt=json.loads(text)
+        jlen=len(jt["results"])
+        print(jlen)
+        if jlen==0:
+            break
+        jtxt=jt["results"] #dict
+        with open(savep,'a+',encoding="utf-8") as f:
+            for ec in jtxt:
+                wtxt=str(ec["name"])+','+str(ec["location"]["lat"])+','+str(ec["location"]["lng"])+','+str(ec["address"])
+                f.write(wtxt + '\n')
+        i+=1
+        time.sleep(2) #百度API对个人用户访问有一定并行限制，所以需要sleep
+    print('done;save at ',savep)
 parseBaiduJson4()
 ```
 
