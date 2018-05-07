@@ -54,16 +54,27 @@ def checkLatOrder(point):
 
 ### R
 
+### mathlab
+
+有一个geodistance的包，用wgs84的椭球体参数算球面（准确说是椭球面）两点的距离
+
 
 ## 调用API类
 
 
 ## 在线计算
 - [在线验证1](http://www.storyday.com/wp-content/uploads/2008/09/latlung_dis.html)
-
+- [在线验证2:距离计算器](http://www.ab126.com/Geography/1884.html)
 
 ## 测试用例
 
 
+# 距离推经纬度
+**给定一个经纬度，计算某个方向（简化为正北或正东方向）一定距离处的经纬度**
+
+
+
+
 ### 参考资料
 1，[距离换算](http://www.cnblogs.com/zhoug2020/p/3950933.html)
+2，[ga.gov.au](http://www.ga.gov.au/scientific-topics/positioning-navigation/geodesy/geodetic-techniques/calculation-methods)
