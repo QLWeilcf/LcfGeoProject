@@ -1,6 +1,6 @@
 
 
-*百度地图API的一些学习记录*；包括JS的API和WebAPI，可视化会对于echarts的内容；单纯调用API的可视化会比较少；
+*百度地图API的一些学习记录*；包括JS的API和WebAPI，可视化会对应echarts的内容；单纯调用API的可视化会比较少；
 
 
 ## Web API
