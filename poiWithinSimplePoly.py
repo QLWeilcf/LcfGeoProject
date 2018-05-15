@@ -34,7 +34,7 @@ def isRayIntersectsSegment(poi, s_poi, e_poi):  # [x,y] [lng,lat]
 		return False
 	return True
 
-
+#只适用简单多边形
 def isPoiWithinSimplePoly(poi, simPoly, tolerance=0.0001):
 	# 点；多边形数组；容限
 	# simPoly=[[x1,y1],[x2,y2],……,[xn,yn],[x1,y1]]
@@ -53,7 +53,23 @@ def isPoiWithinSimplePoly(poi, simPoly, tolerance=0.0001):
 
 	return True if sinsc % 2 == 1 else  False
 
+def isPoiWithinPoly(poi, poly, tolerance=0.0001):
+	# 点；多边形三维数组；容限
+	# poly=[[[x1,y1],[x2,y2],……,[xn,yn],[x1,y1]],[[w1,t1],……[wk,tk]]] 三维数组
 
+	# 先判断点是否在外包矩形内
+	if not isPoiWithinBox(poi, [[0, 0], [180, 90]], tolerance):
+		return False
+
+	sinsc = 0  # 交点个数
+	for epoly in poly: #逐个二维数组进行判断
+		for i in range(len(epoly) - 1):  # [0,len-1]
+			s_poi = epoly[i]
+			e_poi = epoly[i + 1]
+			if isRayIntersectsSegment(poi, s_poi, e_poi):
+				sinsc += 1
+
+	return True if sinsc % 2 == 1 else  False
 
 
 ## 应用
@@ -81,8 +97,7 @@ def pointInPolygon1():
 			point = [float(line[pindex[0]]), float(line[pindex][1])]
 			if isPoiWithinSimplePoly(point, polygon):
 				filewriter.writerow(line)
-			else:
-				continue
+
 		fin.close()
 		gfn.close()
 	print('done')
