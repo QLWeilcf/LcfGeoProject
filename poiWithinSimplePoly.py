@@ -74,6 +74,60 @@ def isPoiWithinPoly(poi, poly, tolerance=0.0001):
 
 ## 应用
 
+### 比较完备的版本
+def pointInPolygon(cin_path,out_path,gfile,t=0):
+    pindex = [2,3]  # wgslng,wgslat  2,3
+    with open(out_path, 'w', newline='') as cut_file:
+        fin = open(cin_path, 'r', encoding='gbk')
+        gfn = open(gfile, 'r', encoding='utf-8')
+        gjson = json.load(gfn)
+        if gjson["features"][0]["geometry"]['type']=="MultiPolygon":
+            plist=gjson["features"][0]["geometry"]['coordinates'] #四维
+            filewriter = csv.writer(cut_file, delimiter=',')
+
+            w = 0
+            for line in csv.reader(fin, delimiter=','):
+                if w == 0:
+                    filewriter.writerow(line)
+                    w = 1
+                    continue
+		point = [float(line[pindex[0]]), float(line[pindex[1]])]
+                for polygon in plist:  #
+                    if isPoiWithinPoly(point, polygon):
+                        filewriter.writerow(line)
+		        break
+            fin.close()
+            gfn.close()
+        elif gjson["features"][0]["geometry"]['type']=="Polygon":
+            polygon=gjson["features"][0]["geometry"]['coordinates'] #三维
+            filewriter = csv.writer(cut_file, delimiter=',')
+            w = 0
+            for line in csv.reader(fin, delimiter=','):
+                if w == 0:
+                    filewriter.writerow(line)
+                    w = 1
+                    continue
+                point = [float(line[pindex[0]]), float(line[pindex[1]])]
+                if isPoiWithinPoly(point, polygon):
+                    filewriter.writerow(line)
+            fin.close()
+            gfn.close()
+        else:
+            print('check',gfile)
+        print('end')
+#调用
+def baTch():
+    import os
+    import glob
+    wpath="D:/DigitalC_data/coordConvert" #文件路径
+    sname="D:/DigitalC_data/coordConvertOut"
+    gpath='D:/cityBoundaryJson/guangzhou_wgs84.json'
+    for input_file in glob.glob(os.path.join(wpath, '*.csv')):
+        fname=input_file.split('\\')
+        pointInPolygon(input_file,os.path.join(sname,fname[1]),gpath)
+        print(fname[1])
+
+
 ### 应用方式1
 def pointInPolygon1():
 	gfile = 'E:/ComputerGraphicsProj/Geojson2kml/J2K_data/深圳poly_bd09.geojson'
@@ -94,7 +148,7 @@ def pointInPolygon1():
 				filewriter.writerow(line)
 				w = 1
 				continue
-			point = [float(line[pindex[0]]), float(line[pindex][1])]
+			point = [float(line[pindex[0]]), float(line[pindex[1]])]
 			if isPoiWithinSimplePoly(point, polygon):
 				filewriter.writerow(line)
 
@@ -113,7 +167,7 @@ def csvToDArrary(csvpath):#csv文件转二维数组
 
 	return cdata
 ### 应用方式2
-def pointInPolygon():
+def pointInPolygon2():
 	gfile = 'E:/ComputerGraphicsProj/Geojson2kml/J2K_data/深圳poly_bd09.geojson'
 	cin_path = 'L:/OtherSys/DigitalCityData/深圳特征图层/shenzhen_tAllNotIn.csv'
 	out_path = 'L:/OtherSys/DigitalCityData/深圳特征图层/shenzhen_tAllNotIn_out2.csv'
