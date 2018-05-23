@@ -11,6 +11,7 @@
 
 
 ```
+# 公用代码
 def categrizeByCoord(c1,c2,threshold=0.0475):
     #要求是同一坐标系
     d1=abs(c1[0]-c2[0])
@@ -19,9 +20,6 @@ def categrizeByCoord(c1,c2,threshold=0.0475):
         return True
     return False
     
-```
-应用：
-```
 def csvTotdArray(csv_path):
     import csv
     cdata = csv.reader(open(csv_path,'r',encoding='utf-8'))
@@ -31,6 +29,19 @@ def csvTotdArray(csv_path):
 
     return lst[1:] #去掉标题行，如果不需去掉就直接写 lst
 
+def arrayToCsv(arr,spath): #二维数组写入csv 不用pandas
+    with open(spath,'w', newline='') as sf:
+        filewriter = csv.writer(sf, delimiter=',')
+        for line in arr:
+            filewriter.writerow(line)
+	    
+def listToStr(lst,w=','): #列表变一行csv  后面的 \n 看情况放
+    return w.join(lst)+'\n'
+```
+### 应用：
+
+
+```
 
 
 '''
