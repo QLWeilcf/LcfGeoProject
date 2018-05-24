@@ -72,7 +72,6 @@ def isPoiWithinPoly(poi, poly, tolerance=0.0001):
 	#return True if sinsc % 2 == 1 else  False
 
 
-## 应用
 
 ### 比较完备的版本
 def pointInPolygon(cin_path,out_path,gfile,t=0):
@@ -115,6 +114,9 @@ def pointInPolygon(cin_path,out_path,gfile,t=0):
         else:
             print('check',gfile)
         print('end')
+	
+	
+	
 #调用
 def baTch():
     import os
@@ -127,6 +129,16 @@ def baTch():
         pointInPolygon(input_file,os.path.join(sname,fname[1]),gpath)
         print(fname[1])
 
+	
+## 应用
+
+### 应用3
+'''
+对一个csv数据，如果点在多边形内，给某一列(tag)（或者加一列）加上这个多边形的属性（有多个多边形）
+'''	
+def givePolyTag():
+    pass
+	
 
 ### 应用方式1
 def pointInPolygon1():
