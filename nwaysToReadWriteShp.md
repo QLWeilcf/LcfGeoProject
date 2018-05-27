@@ -2,9 +2,17 @@
 ## 用库
 
 - [shapefile.py](https://github.com/GeospatialPython/pyshp)
+```
+import shapefile
+sf = shapefile.Reader("shapefiles/blockgroups.shp")
+
+```
+
 - [geopandas](https://github.com/geopandas/geopandas)
 
-
+```
+data = GeoDataFrame.from_file('bayarea_general.shp')
+```
 
 ## 学习代码：
 
