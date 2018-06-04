@@ -1,6 +1,17 @@
 ## 地理数据交换
 *（注意坐标系统、投影方式）*
 
+### 主流数据类型
+（部分参考自[awesome-gis](https://github.com/sshuair/awesome-gis#data-format)）
+
+
+
+
+
+### 代码转换
+
+
+
 
 
 ### 在线工具
