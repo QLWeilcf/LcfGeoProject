@@ -12,7 +12,14 @@
 
 
 
+### 数据获取
 
+#### GIS
+
+- [GADM Data](https://gadm.org/download_country_v3.html)
+
+
+#### RS
 
 ### 在线工具
 - [mapshaper.org/](http://mapshaper.org/) 支持shp、geojson、topojson、csv、dbf文件的导入和导出
