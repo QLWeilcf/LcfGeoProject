@@ -4,12 +4,27 @@
 ### 主流数据类型
 （部分参考自[awesome-gis](https://github.com/sshuair/awesome-gis#data-format)）
 
+- Shp
+   - e00
+- kml
+- geojson
+- dxf
+- gpx
 
 
+- geotiff
+- img
+- ENVI hdr
 
 
 ### 代码转换
 
+**I try**：
+- [geojson2kml in C#]()
+
+**others excellent project**
+
+- [kml2geojson in Python](https://github.com/mrcagney/kml2geojson)
 
 
 ### 数据获取
@@ -22,6 +37,8 @@
 #### RS
 
 - [地理空间数据云](http://www.gscloud.cn/) 有较全的LANDSAT系列数据；
+
+### API
 
 ### 在线工具
 - [mapshaper.org/](http://mapshaper.org/) 支持shp、geojson、topojson、csv、dbf文件的导入和导出
