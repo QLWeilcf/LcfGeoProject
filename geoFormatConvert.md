@@ -6,7 +6,7 @@
 
 - Shp
    - e00
-- kml
+- kml  -> OSM
 - geojson
 - dxf
 - gpx
@@ -26,7 +26,7 @@
 
 - [kml2geojson in Python](https://github.com/mrcagney/kml2geojson)
 - [osmtogeojson in js(node)](https://github.com/tyrasd/osmtogeojson)
-
+- [osm-and-geojson](https://github.com/aaronlidman/osm-and-geojson) Converts OSM XML to GeoJSON
 ### 数据获取
 
 #### GIS
