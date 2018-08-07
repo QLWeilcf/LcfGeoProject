@@ -1,7 +1,7 @@
 # LcfGeoProject
 My code and project of Geography and Geography
 
-
+## code and file
 - [GeoCluster](./GeoCluster.ipynb) 地理坐标聚类
   
  [KmeansCluster](./KmeansCluster.cs) KmeansCluster in C#
@@ -12,3 +12,6 @@ My code and project of Geography and Geography
 
 - code&data at other repository：[geoAlgorithmLcf](https://github.com/QLWeilcf/geoAlgorithmLcf) 这边主要是一些传统算法，有些偏向图形学，如求两线段交点、判断空间关系等（基础也重要）
 
+## other repos
+
+- [OSMapNote](https://github.com/QLWeilcf/OSMapNote) some note about OSM、Mapbox、Leaflet
