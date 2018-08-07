@@ -26,7 +26,7 @@
 
 - [kml2geojson in Python](https://github.com/mrcagney/kml2geojson)
 - [osmtogeojson in js(node)](https://github.com/tyrasd/osmtogeojson)
-- [osm-and-geojson](https://github.com/aaronlidman/osm-and-geojson) Converts OSM XML to GeoJSON
+- [osm-and-geojson](https://github.com/aaronlidman/osm-and-geojson) Converts OSM XML to GeoJSON; [geojson2osm](https://github.com/Rub21/geojson2osm) & [geojsontoosm](https://github.com/tyrasd/geojsontoosm)
 ### 数据获取
 
 #### GIS
