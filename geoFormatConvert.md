@@ -37,6 +37,8 @@
 #### RS
 
 - [地理空间数据云](http://www.gscloud.cn/) 有较全的LANDSAT系列数据；
+- [遥感免费数据源合集](https://rs-freedatasource.readthedocs.io/zh_CN/latest/) 包含下载方法和预处理过程
+
 
 ### API
 
